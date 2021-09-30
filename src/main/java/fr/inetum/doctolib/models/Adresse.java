@@ -14,8 +14,8 @@ import javax.persistence.*;
 public class Adresse {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "numero")
     private String numero;
@@ -24,7 +24,7 @@ public class Adresse {
     private String rue;
 
     @Column(name = "cp")
-    private Integer cp;
+    private String cp;
 
     @Column(name = "ville")
     private String ville;

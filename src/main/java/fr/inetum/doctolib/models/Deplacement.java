@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -16,18 +16,18 @@ import java.time.LocalDate;
 public class Deplacement {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "date")
-    private LocalDate date;
+    private LocalDateTime date;
 
     @Column(name = "cout")
     private Double cout;
 
-    @OneToOne
-    @JoinColumn( name="patient_id" )
-    private Patient patient;
+//    @OneToOne
+//    @JoinColumn( name="patient_id" )
+//    private Patient patient;
 
     @OneToOne
     @JoinColumn( name="patient_id" )

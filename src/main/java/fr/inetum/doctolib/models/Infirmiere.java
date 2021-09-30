@@ -14,14 +14,14 @@ import javax.persistence.*;
 public class Infirmiere {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @OneToOne
     @JoinColumn( name="adresse_id", unique = true )
     private Adresse adresse;
 
-    @Column(name = "numeroProfessionnel")
+    @Column(name = "numero_professionnel")
     private Integer numeroProfessionnel;
 
     @Column(name = "nom")
@@ -30,11 +30,11 @@ public class Infirmiere {
     @Column(name = "prenom")
     private String prenom;
 
-    @Column(name = "telPro")
-    private Integer telPro;
+    @Column(name = "tel_pro")
+    private String telPro;
 
-    @Column(name = "telPerso")
-    private Integer telPerso;
+    @Column(name = "tel_perso")
+    private String telPerso;
 
 //    private List<Patient> patients
 

@@ -1,5 +1,6 @@
 package fr.inetum.doctolib.models;
 
+import fr.inetum.doctolib.models.enums.SexeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,16 +16,16 @@ import java.time.LocalDate;
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @OneToOne
     @JoinColumn( name="adresse_id", unique = true )
     private Adresse adresse;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "infirmiere_id", referencedColumnName = "id")
-    private Infirmiere infirmiere;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "infirmiere_id", referencedColumnName = "id")
+//    private Infirmiere infirmiere;
 
     @Column(name = "nom")
     private String nom;
@@ -32,13 +33,14 @@ public class Patient {
     @Column(name = "prenom")
     private String prenom;
 
-    @Column(name = "dateDeNaissance")
+    @Column(name = "date_de_naissance")
     private LocalDate dateDeNaissance;
 
-    @Column(name = "sexe")
-    private String sexe;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sexe", columnDefinition = "ENUM('Homme', 'Femme', 'Autre')")
+    private SexeEnum sexe;
 
-    @Column(name = "numeroSecuriteSocial")
+    @Column(name = "numero_securite_sociale")
     private Long numeroSecuriteSocial;
 
 
