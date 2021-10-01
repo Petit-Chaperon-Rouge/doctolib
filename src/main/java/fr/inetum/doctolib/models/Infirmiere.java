@@ -21,7 +21,7 @@ public class Infirmiere {
     private Integer id;
 
     @OneToOne
-    @JoinColumn( name="adresse_id", unique = true )
+    @JoinColumn( name="adresse_id" )
     private Adresse adresse;
 
     @Column(name = "numero_professionnel")
@@ -39,12 +39,12 @@ public class Infirmiere {
     @Column(name = "tel_perso")
     private String telPerso;
 
-    @JsonManagedReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "infirmiere", cascade = CascadeType.ALL)
-    private List<Patient> patients;
+//    @JsonManagedReference
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "infirmiere", cascade = CascadeType.ALL)
+//    private List<Patient> patients;
 
-    @JsonBackReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "infirmiere", cascade = CascadeType.ALL)
-    private List<Deplacement> deplacements;
+//    @JsonManagedReference
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "infirmiere", cascade = CascadeType.ALL)
+//    private List<Deplacement> deplacements;
 
 }

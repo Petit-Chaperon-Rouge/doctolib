@@ -27,12 +27,12 @@ public class Deplacement {
     @Column(name = "cout")
     private Double cout;
 
-    @JsonManagedReference
+//    @JsonBackReference
     @ManyToOne
     @JoinColumn( name="patient_id" )
     private Patient patient;
 
-    @JsonManagedReference
+//    @JsonBackReference
     @ManyToOne
     @JoinColumn( name="infirmiere_id" )
     private Infirmiere infirmiere;
