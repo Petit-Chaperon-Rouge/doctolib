@@ -25,6 +25,18 @@ public class DeplacementController {
         return this.deplacementService.findAll();
     }
 
+    @GetMapping("/patient/{id}")
+    public List<Deplacement> findByPatientId(@PathVariable Integer id) {
+        LOGGER.info("Recherche de tous les deplacements d'un patient");
+        return this.deplacementService.findByPatientId(id);
+    }
+
+    @GetMapping("/infirmiere/{id}")
+    public List<Deplacement> findByInfirmiereId(@PathVariable Integer id) {
+        LOGGER.info("Recherche de tous les deplacements d'une infirmiere");
+        return this.deplacementService.findByInfirmiereId(id);
+    }
+
     @GetMapping("{id}")
     public Deplacement findById(@PathVariable Integer id) {
         LOGGER.info("Recherche du deplacement avec l'id " + id);

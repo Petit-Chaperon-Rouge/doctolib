@@ -27,6 +27,16 @@ public class DeplacementServiceImpl implements DeplacementService {
     }
 
     @Override
+    public List<Deplacement> findByPatientId(Integer id) {
+        return this.deplacementRepository.findByPatientId(id);
+    }
+
+    @Override
+    public List<Deplacement> findByInfirmiereId(Integer id) {
+        return this.deplacementRepository.findByInfirmiereId(id);
+    }
+
+    @Override
     public Deplacement create(Deplacement deplacement) {
         return this.deplacementRepository.save(deplacement);
     }
