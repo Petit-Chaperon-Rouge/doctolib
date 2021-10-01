@@ -1,11 +1,14 @@
 package fr.inetum.doctolib;
 
+import fr.inetum.doctolib.repositories.AdresseRepository;
 import fr.inetum.doctolib.repositories.DeplacementRepository;
 import fr.inetum.doctolib.repositories.InfirmiereRepository;
 import fr.inetum.doctolib.repositories.PatientRepository;
+import fr.inetum.doctolib.services.AdresseService;
 import fr.inetum.doctolib.services.DeplacementService;
 import fr.inetum.doctolib.services.InfirmiereService;
 import fr.inetum.doctolib.services.PatientService;
+import fr.inetum.doctolib.services.impl.AdresseServiceImpl;
 import fr.inetum.doctolib.services.impl.DeplacementServiceImpl;
 import fr.inetum.doctolib.services.impl.InfirmiereServiceImpl;
 import fr.inetum.doctolib.services.impl.PatientServiceImpl;
@@ -28,6 +31,10 @@ public class AppConfig {
     @Bean
     public DeplacementService deplacementService(DeplacementRepository deplacementRepository) {
         return new DeplacementServiceImpl(deplacementRepository);
+    }
+
+    public AdresseService adresseService(AdresseRepository adresseRepository) {
+        return new AdresseServiceImpl(adresseRepository);
     }
 
 }
