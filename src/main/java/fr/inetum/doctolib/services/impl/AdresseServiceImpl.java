@@ -28,7 +28,11 @@ public class AdresseServiceImpl implements AdresseService {
 
     @Override
     public Adresse create(Adresse adresse) {
-        return this.adresseRepository.save(adresse);
+        Adresse dbAdresse = this.adresseRepository.findByNumeroAndRueAndCpAndVille(adresse.getNumero(), adresse.getRue(), adresse.getCp(), adresse.getVille());
+        if (dbAdresse != null)
+            return dbAdresse;
+        else
+            return this.adresseRepository.save(adresse);
     }
 
     @Override
