@@ -33,6 +33,7 @@ public class AppConfig {
         return new DeplacementServiceImpl(deplacementRepository);
     }
 
+    @Bean
     public AdresseService adresseService(AdresseRepository adresseRepository) {
         return new AdresseServiceImpl(adresseRepository);
     }
