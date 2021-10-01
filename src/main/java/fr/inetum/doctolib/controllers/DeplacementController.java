@@ -43,7 +43,7 @@ public class DeplacementController {
         return deplacementService.put(deplacement);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public void deleteById(@PathVariable Integer id) {
         LOGGER.info("Suppression d'un deplacement");
         deplacementService.deleteById(id);

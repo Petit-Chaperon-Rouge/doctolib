@@ -43,7 +43,7 @@ public class InfirmiereController {
         return infirmiereService.put(infirmiere);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public void deleteById(@PathVariable Integer id) {
         LOGGER.info("Suppression d'une infirmiere");
         infirmiereService.deleteById(id);

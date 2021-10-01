@@ -43,7 +43,7 @@ public class AdresseController {
         return adresseService.put(adresse);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public void deleteById(@PathVariable Integer id) {
         LOGGER.info("Suppression d'une adresse");
         adresseService.deleteById(id);
