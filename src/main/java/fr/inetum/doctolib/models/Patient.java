@@ -1,6 +1,7 @@
 package fr.inetum.doctolib.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import fr.inetum.doctolib.models.enums.SexeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -44,5 +46,9 @@ public class Patient {
 
     @Column(name = "numero_securite_sociale")
     private Long numeroSecuriteSocial;
+
+    @JsonBackReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<Deplacement> deplacements;
 
 }

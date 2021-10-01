@@ -1,6 +1,8 @@
 package fr.inetum.doctolib.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,12 +27,14 @@ public class Deplacement {
     @Column(name = "cout")
     private Double cout;
 
-//    @OneToOne
-//    @JoinColumn( name="patient_id" )
-//    private Patient patient;
-
-    @OneToOne
+    @JsonManagedReference
+    @ManyToOne
     @JoinColumn( name="patient_id" )
+    private Patient patient;
+
+    @JsonManagedReference
+    @ManyToOne
+    @JoinColumn( name="infirmiere_id" )
     private Infirmiere infirmiere;
 
 }
