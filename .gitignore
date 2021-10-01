@@ -33,5 +33,5 @@ build/
 .vscode/
 
 ### Project ###
-
 ./logs/
+/doctolib_db/data/*
