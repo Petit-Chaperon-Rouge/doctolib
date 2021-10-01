@@ -1,5 +1,6 @@
 package fr.inetum.doctolib.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import fr.inetum.doctolib.models.enums.SexeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,10 +23,11 @@ public class Patient {
     @OneToOne
     @JoinColumn( name="adresse_id", unique = true )
     private Adresse adresse;
-//
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "infirmiere_id", referencedColumnName = "id")
-//    private Infirmiere infirmiere;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "infirmiere_id", referencedColumnName = "id")
+    private Infirmiere infirmiere;
 
     @Column(name = "nom")
     private String nom;
@@ -42,6 +44,5 @@ public class Patient {
 
     @Column(name = "numero_securite_sociale")
     private Long numeroSecuriteSocial;
-
 
 }

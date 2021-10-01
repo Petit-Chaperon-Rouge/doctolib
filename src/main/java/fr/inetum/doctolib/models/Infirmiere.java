@@ -1,10 +1,12 @@
 package fr.inetum.doctolib.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -36,6 +38,8 @@ public class Infirmiere {
     @Column(name = "tel_perso")
     private String telPerso;
 
-//    private List<Patient> patients
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "infirmiere", cascade = CascadeType.ALL)
+    private List<Patient> patients;
 
 }
